@@ -1,1 +1,1 @@
-# confidential-computing-education
+# Confidential Computing Education
