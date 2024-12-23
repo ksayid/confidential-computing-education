@@ -99,3 +99,9 @@
 * Host vs. Container: Namespaces, cgroups, seccomp, and LSMs keep containers isolated from the host’s system resources and files.
 * Inter-Container Isolation: Each container is in its own set of namespaces and cgroups; additional constraints can be added with SELinux/AppArmor policies.
 * Defense-in-Depth: A combination of user namespaces, seccomp profiles, LSM policies, and minimal container runtimes (like gVisor or Kata for extra security) strengthens isolation.
+
+## Image Layers
+* Docker container images are built incrementally. Each step in the Dockerfile creates a new read-only layer, which is stacked on top of the previous layers.
+* Each layer has its own 256-bit hash (a content-based identifier).
+Docker provides commands such as docker history and docker image inspect to reveal how many layers an image contains and what commands generated each layer.
+* Layers are cached and shared among containers. For instance, if multiple images use the same base image layer, Docker only stores it once, improving efficiency in disk usage and build time.
