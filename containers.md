@@ -81,13 +81,6 @@
     * Historically used AUFS, now commonly overlay2.
     * Minimizes duplication across images/containers.
 
-## Overlay Filesystems (Overlay FS)
-* Concept: A union mount filesystem that combines multiple read-only layers with one writable layer.
-* Docker Usage:
-    * Commonly uses overlay2.
-    * Copy-on-write: Only modified files are copied to the top writable layer, reducing duplication.
-    * Layered file systems present a single merged filesystem view to the container.
-
 ## Container Runtimes
 * Definition: A piece of software that translates user-facing container specs into actual kernel-level isolation (namespaces, cgroups, seccomp, etc.).
 * Common Approaches:
