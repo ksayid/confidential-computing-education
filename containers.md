@@ -5,9 +5,8 @@
     * Image specification: Defines how container images are packaged.
     * Runtime specification: Defines how containers are started, stopped, and managed.
 2. Implementations:
-* runc: Provides a low-level CLI wrapper around libcontainer to directly run OCI-compliant containers.
-    * Lightweight but “bare bones” compared to Docker’s API.
-* containerd: Added support for OCI-compliant images, converting Docker images to OCI bundles under the hood.
+    * runc: Provides a low-level CLI wrapper around libcontainer to directly run OCI-compliant containers. Lightweight but “bare bones” compared to Docker’s API.
+    * containerd: Added support for OCI-compliant images, converting Docker images to OCI bundles under the hood.
 
 ## Docker Architecture
 * Docker CLI: User-facing command-line tool that sends requests (e.g., docker run).
