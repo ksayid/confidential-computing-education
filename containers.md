@@ -89,9 +89,12 @@ Note: the runtime is not included as a part of Kubernetes. It's a pluggable modu
 * Defense-in-Depth: A combination of user namespaces, seccomp profiles, LSM policies, and minimal container runtimes (like gVisor or Kata for extra security) strengthens isolation.
 
 ## Image Layers
-* Docker container images are built incrementally. Each step in the Dockerfile creates a new read-only layer, which is stacked on top of the previous layers.
-* Each layer has its own 256-bit hash (a content-based identifier).
-* Layers are cached and shared among containers. For instance, if multiple images use the same base image layer, Docker only stores it once, improving efficiency in disk usage and build time.
-* After each layer is downloaded, it is extracted into its own directory on the host filesystem. Then, when you run a container from an image, a union filesystem is created where layers are stacked on top of each other, creating a new and unified view. When the container starts, its root directory is set to the location of this unified directory, using chroot.
-
-When the union filesystem is created, in addition to the image layers, a directory is created specifically for the running container. This allows the container to make filesystem changes while allowing the original image layers to remain untouched. This enables you to run multiple containers from the same underlying image.
+* Docker container images are built incrementally. Each step in the Dockerfile creates a new, read-only layer that is stacked on top of the previous layers.
+* Each layer has its own 256-bit hash (a content-based identifier). This hash uniquely identifies the layer’s contents.
+* Layers are cached and shared among containers. For instance, if multiple images use the same base image layer, Docker only stores it once, which improves efficiency in both disk usage and build time.
+* After each layer is downloaded, it is extracted into its own directory on the host filesystem. When you run a container from an image, Docker uses a union filesystem to stack these layers on top of each other, creating a unified view of the filesystem. When the container starts, its root directory is set to this unified directory via chroot.
+* If a file already exists in a lower (read-only) layer, Docker doesn’t copy it into the container layer unless you modify it. In other words, files are shared across layers until they need to be changed—only then are they “copied” into the writable layer. Reading a file always checks the topmost layer first. If you replace a file that existed in a lower layer, Docker places a modified copy in your container’s writable layer. The container will then use that copy instead of the original one from the image.
+* Any changes made to a running container—new files, modifications, or deletions—are written to a temporary, writable layer called the container layer, which resides on the local host filesystem.
+* The Docker storage driver manages requests to this layer and ensures lower layers remain read-only.
+* This writable layer is tied to the container ID and persists on the host until you remove or prune the container.
+* Because all the layers beneath the container layer are read-only and shared, you can run multiple containers from the same underlying image. Each container simply has its own dedicated (and writable) top layer to capture runtime changes.
