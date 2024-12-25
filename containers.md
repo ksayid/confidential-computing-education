@@ -71,12 +71,17 @@
     * Historically used AUFS, now commonly overlay2.
     * Minimizes duplication across images/containers.
 
+The storage driver is what provides the union filesystem, which manages the layers of the container and how the writeable layer of the container is accessed. In most installations, you won't need to change the default storage driver since a default option will be selected. If you are running a Linux kernel that is at least
+version 4.0 or above, your Docker installation will use the overlay2 storage driver; earlier kernels will install the AUFS storage driver.
+
 ## Container Runtimes
 * Definition: A piece of software that translates user-facing container specs into actual kernel-level isolation (namespaces, cgroups, seccomp, etc.).
 * Common Approaches:
     * Native Runtimes (e.g., runC): Container shares the host kernel directly.
     * Sandboxed Runtimes (e.g., gVisor): Interposes a kernel “proxy” to implement syscalls, reducing direct host kernel exposure (not all syscalls are supported).
     * Virtualized Runtimes (e.g., Kata Containers): Runs containers inside lightweight VMs (Firecracker, QEMU). Highest isolation, some performance overhead.
+
+Note: the runtime is not included as a part of Kubernetes. It's a pluggable module that needs to be supplied by you/a vendor to create a functioning cluster.
 
 ## Container Isolation
 * Host vs. Container: Namespaces, cgroups, seccomp, and LSMs keep containers isolated from the host’s system resources and files.
@@ -86,5 +91,7 @@
 ## Image Layers
 * Docker container images are built incrementally. Each step in the Dockerfile creates a new read-only layer, which is stacked on top of the previous layers.
 * Each layer has its own 256-bit hash (a content-based identifier).
-Docker provides commands such as docker history and docker image inspect to reveal how many layers an image contains and what commands generated each layer.
 * Layers are cached and shared among containers. For instance, if multiple images use the same base image layer, Docker only stores it once, improving efficiency in disk usage and build time.
+* After each layer is downloaded, it is extracted into its own directory on the host filesystem. Then, when you run a container from an image, a union filesystem is created where layers are stacked on top of each other, creating a new and unified view. When the container starts, its root directory is set to the location of this unified directory, using chroot.
+
+When the union filesystem is created, in addition to the image layers, a directory is created specifically for the running container. This allows the container to make filesystem changes while allowing the original image layers to remain untouched. This enables you to run multiple containers from the same underlying image.
