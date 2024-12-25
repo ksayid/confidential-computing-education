@@ -8,15 +8,6 @@
     * runc: Provides a low-level CLI wrapper around libcontainer to directly run OCI-compliant containers. Lightweight but “bare bones” compared to Docker’s API.
     * containerd: Added support for OCI-compliant images, converting Docker images to OCI bundles under the hood.
 
-## Docker Architecture
-* Docker CLI: User-facing command-line tool that sends requests (e.g., docker run).
-* Docker Daemon (dockerd): Implements the Docker engine. Receives CLI requests, manages container life cycles using containerd.
-* containerd: A simpler daemon that handles the actual container lifecycle tasks and communicates with runc.
-    * Manages containers, images, volumes, and networks.
-    * Exposes an HTTP/gRPC API.
-* runc: The low-level runtime for spawning and running containers via Linux kernel features (namespaces, cgroups, etc.).
-* Shim: A daemonless stub process left after runc starts a container; it lets the container keep running independently if Docker upgrades or restarts.
-
 ## Linux Kernel Features Underlying Containers 
 ### Namespaces
 * Goal: Provide isolation of resources so that each container sees only its own environment.
