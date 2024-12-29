@@ -1,24 +1,42 @@
 # Containers
 
 ## Open Container Initiative (OCI)
-1. Purpose: The OCI sets open industry standards for container formats and runtimes.
-    * Image specification: Defines how container images are packaged.
-    * Runtime specification: Defines how containers are started, stopped, and managed.
-2. Implementations:
-    * runc: Provides a low-level CLI wrapper around libcontainer to directly run OCI-compliant containers. Lightweight but “bare bones” compared to Docker’s API.
-    * containerd: Added support for OCI-compliant images, converting Docker images to OCI bundles under the hood.
+The **Open Container Initiative** (OCI) defines open industry standards for container formats and runtimes. Two key specifications exist:
+### Image specification
+Describes how container images are packaged, ensuring compatibility across different engines
+
+#### Distribution and Registry
+OCI images can be pushed to and pulled from any OCI-compliant registry (e.g., Docker Hub, GitHub Container Registry, Azure Container Registry). The registry stores manifests, layers, and configs in a way that respects the OCI image spec. When you pull an image:
+* The client (e.g., Docker CLI) fetches the image’s manifest.
+* It then downloads the layers by their hashes if they’re not already cached locally.
+* Finally, it retrieves the config JSON that details how the container should be set up at runtime
+
+### Runtime specification.
+Standardizes how containers are started, stopped, and managed, allowing for consistent behavior across various runtimes.
+* *When a container is launched using an OCI-compliant runtime (like runc or crun), one of the main inputs is a file called `config.json`. This JSON file specifies all the low-level settings needed to run the container,  from which system calls to block (seccomp settings) to which user the container runs as. 
+    * Namespaces: For example, `"namespaces": ["pid", "mount", "network"]` might indicate that the container should have separate PID, mount, and network namespaces from the host.
+    * Cgroups: Defines resource constraints (CPU, memory, etc.). For instance, you might set `"memory": { "limit": 536870912 }` (512 MB) to control how much RAM the container can use.
+    * Root Filesystem: Specifies the path to the container’s root filesystem bundle (the uncompressed image layers). For example, `"root": { "path": "/var/lib/containers/bundle/rootfs" }`.
+    * Environment Variables: A list of key-value pairs, e.g., `"env": ["PATH=/usr/local/bin:/usr/bin:/bin", "NODE_ENV=production"]`.
+* Defines how a container’s initial process is launched (PID 1 inside the container), and how signals or exit statuses are handled.
+* Outlines hooks and events for container creation, execution, pausing, resuming, and deletion.
+
+Several projects implement these standards:
+* **runc**: A low-level CLI wrapper around `libcontainer` for directly running OCI-compliant containers. It's minimalistic—unlike Docker, it does not provide a rich API.
+* **containerd**: Supports OCI-compliant images. Under the hood, it converts Docker images into OCI bundles, bridging Docker's API calls with lower-level container operations. As an OCI-compliant engine, containerd pulls, caches, and stores images in its content store. This store is keyed by the layer hashes (digests). When you run `containerd pull <image>`, it retrieves the manifest, layers, and config—verifying all hashes—then makes them available to runtimes like `runc`.
 
 ## Linux Kernel Features Underlying Containers 
+Containers rely on foundational Linux kernel capabilities to provide isolation and resource management.
+
 ### Namespaces
-* Goal: Provide isolation of resources so that each container sees only its own environment.
-* Types of Namespaces (seven total; cgroups is separate):
-    * mnt – Isolates mount points/filesystems.
-    * pid – Provides independent process IDs (PID 1 inside the container).
-    * ipc – Separates inter-process communication (shared memory, semaphores).
-    * user – Separates user IDs and privileges across containers.
-    * net – Virtualizes network stack (e.g., multiple lo interfaces).
-    * uts – Splits host and domain name (UNIX time sharing).
-    * cgroups – Often listed separately; manages resource usage limits.
+Linux namespaces isolate resources at the kernel level, ensuring each container perceives only its own "private" environment. The major namespaces involved are:
+* **mnt**: Isolates mount points and filesystems.
+* **pid**: Gives processes inside the container their own PID space (with PID 1 inside the container).
+* **ipc**: Separates inter-process communication, including shared memory and semaphores.
+* **user**: Divides user IDs and privileges, ensuring a container’s root user is not root on the host.
+* **net**: Virtualizes the network stack (e.g., each container can have its own loopback interface).
+* **uts**: Splits the hostname and domain name (UNIX time sharing).
+* **cgroups**: Typically listed separately; manages resource usage constraints.
 
 ### Control Groups (cgroups)
 * Purpose: Group-level resource allocation, limiting, prioritization, accounting, and process control.
@@ -27,14 +45,14 @@
     * Accounting (e.g., track usage for billing or scheduling).
     * Control (e.g., pause/resume processes, checkpoint/restore).
 * Hierarchy: Child groups inherit parent resource constraints.
-* Controllers: (e.g., “memory” to limit memory usage, “cpuacct” to track CPU usage).
-* cgroup filesystem: Typically mounted at /sys/fs/cgroup; can browse container resource usage there.
+* Controllers: (e.g., "memory" to limit memory usage, “cpuacct” to track CPU usage).
+* cgroup filesystem: Typically mounted at `/sys/fs/cgroup`; can browse container resource usage there.
 
 ### seccomp (Secure Computing)
 * Definition: A kernel mechanism (since version 3.12) that restricts the set of system calls a process can make.
 * Purpose: Prevent a compromised container process from invoking “dangerous syscalls,” thus mitigating potential kernel exploits.
 * Profiles:
-    * Typically use a “denylist” or “allowlist” approach, often referred to as seccomp “profiles.”
+    * Typically use a "denylist" or "allowlist" approach, often referred to as seccomp "profiles."
     * Docker applies a default seccomp profile by default but supports custom profiles
 
 ### Linux Security Modules (LSM)
@@ -84,9 +102,7 @@ version 4.0 or above, your Docker installation will use the overlay2 storage dri
 Note: the runtime is not included as a part of Kubernetes. It's a pluggable module that needs to be supplied by you/a vendor to create a functioning cluster.
 
 ## Container Isolation
-* Host vs. Container: Namespaces, cgroups, seccomp, and LSMs keep containers isolated from the host’s system resources and files.
-* Inter-Container Isolation: Each container is in its own set of namespaces and cgroups; additional constraints can be added with SELinux/AppArmor policies.
-* Defense-in-Depth: A combination of user namespaces, seccomp profiles, LSM policies, and minimal container runtimes (like gVisor or Kata for extra security) strengthens isolation.
+Containers are isolated from the host via namespaces, cgroups, seccomp, and LSMs. To further isolate containers from one another, each container can use separate user namespaces and additional policies via SELinux or AppArmor. A defense-in-depth strategy—combining minimal runtimes (gVisor or Kata) with robust seccomp profiles and LSM rules—further reduces risk.
 
 ## Image Layers
 * Docker container images are built incrementally. Each step in the Dockerfile creates a new, read-only layer that is stacked on top of the previous layers.

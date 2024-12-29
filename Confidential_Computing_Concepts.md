@@ -1,5 +1,5 @@
 # Confidential Computing Concepts
-**Confidential computing** (CC) refers to technologies and practices that isolate and protect data during processing, preventing unauthorized access—even by the owner of the hardware or a **cloud service provider** (CSP). This is primarily achieved using **trusted execution environments** (TEEs) and associated security mechanisms such as attestation, secure boot, and robust key management.
+**Confidential computing** refers to technologies and practices that isolate and protect data during processing, preventing unauthorized access—even by the owner of the hardware or a **cloud service provider** (CSP). This is primarily achieved using **trusted execution environments** (TEEs) and associated security mechanisms such as attestation, secure boot, and robust key management.
 
 ## Goals
 ### Confidentiality
@@ -39,7 +39,7 @@ A **secure enclave** is a hardware-based implementation of a TEE. It typically:
 * **Broader vs. narrower**: A TEE can be software-based, whereas a secure enclave is specifically hardware-enforced.
 
 ### Trusted Computing Base (TCB)
-The **TCB** is the collection of hardware, software, and firmware components essential for enforcing a system’s security policies.
+The **TCB** is the collection of hardware, software, and firmware components essential for enforcing a system’s security policies. When we talk about a "trusted" computing base, we don't necessarily mean that the system is secure, but that these components are critical for the system’s security. They are the root of trust, because the system assumes they are secure enough to be trusted. We must, after all, start trusting somewhere. This is actually what defines a TCB and why it must be as minimal as possible.
 * **Critical for security**: Weaknesses or vulnerabilities in the TCB compromise the entire system’s integrity.
     * Example: If a hypervisor that’s part of the TCB has a critical bug, an attacker could potentially compromise every virtual machine.
 * **Size matters**: Smaller TCBs are easier to audit and reason about.
@@ -71,7 +71,7 @@ The **TCB** is the collection of hardware, software, and firmware components ess
 
 ### Packaged Non-CC Offerings
 * General-purpose applications or services that might use CC features from any of the above but are not strictly CC-focused.
-* Example: A CRM platform that “optionally” uses enclaves for especially sensitive customer data but does not exclusively rely on them.
+* Example: A CRM platform that "optionally" uses enclaves for especially sensitive customer data but does not exclusively rely on them.
 
 ## Ideal requirements for a Trustworthy TCB
 A cornerstone of Confidential Computing (CC) is having a well-defined trust model, which mandates a fully traceable and attestable TCB. The challenge: many CC vendors provide large and complex TCBs, making it difficult or impossible to verify each component.
