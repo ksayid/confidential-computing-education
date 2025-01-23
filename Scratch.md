@@ -48,6 +48,15 @@ https://chungkim.io/
 https://people.csail.mit.edu/mengyuanli/
 https://books.google.com/books/about/Introduction_to_Confidential_Computing.html?id=rqspEQAAQBAJ
 https://arxiv.org/html/2407.02960v2
+https://www.youtube.com/playlist?list=PLBexUsYDijaz14Mot8_6rAbxkoF4iS6PZ
+https://www.youtube.com/playlist?list=PLOspHqNVtKABAVX4azqPIu6UfsPzSu2YN
+https://www.youtube.com/watch?v=_IAfiSdPuEs
+https://www.youtube.com/watch?v=BgrQ16r84pM&list=PLBexUsYDijaz14Mot8_6rAbxkoF4iS6PZ&index=3
+https://www.youtube.com/playlist?list=PLOspHqNVtKAC-_ZAGresP-i0okHe5FjcJ
+https://www.youtube.com/watch?v=0ctat6RBrFo&list=PLOspHqNVtKACfjqfEwR3iKz1gJILKj5Tn&index=8
+https://www.youtube.com/watch?v=pMHxLBJ6_UA&list=PLOspHqNVtKACfjqfEwR3iKz1gJILKj5Tn&index=24
+https://www.youtube.com/playlist?list=PLOspHqNVtKADX-InvL3aRFYuOYvi-Qmep
+https://www.youtube.com/watch?v=DqdVjEe5f6o
 
 Several software-based storage system protection techniques are integrated into mainstream operating systems. Encryption-enabled file systems (e.g., Linux ecryptfs [37], and Windows EFS [1]) allow directory-level encryption. Block-layer encryption techniques such as dmcrypt [25] directly encrypt the entire block device. dm-crypt also offers integrity checking of read-only filesystems where the entire block device is verified at once. This approach is particularly time-consuming and thus is typically used only during device startup [6], [44]. dm-verify [6] uses a software maintained Merkle tree structure to compute and validate hashes of read-only data blocks against pre-computed hashes. In contrast, dm-integrity keeps individual hashes for each data block during runtime, which allows verification for read/write system. However, it cannot detect physical attacks such as reordering the blocks within the same device due to the lack of a secure root of trust in the system. Finally, software-based schemes can have substantial overhead as the en/decryption is done in software via executing many kernel sub-routines across software layers [15], [63].
 
