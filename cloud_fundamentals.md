@@ -56,3 +56,22 @@ Schedule-Driven
 * Triggered By: A timer or schedule (e.g., every night at midnight, or once after a specified delay).
 * Examples: Routine data updates, daily report generation, cleaning stale records.
 * Caution: If the scheduler or compute instance scales out, you could unintentionally trigger multiple instances of the same task; consider concurrency control and idempotency.
+
+https://learn.microsoft.com/en-us/azure/well-architected/reliability/design-patterns
+https://learn.microsoft.com/en-us/security/zero-trust/apply-zero-trust-azure-services-overview
+https://learn.microsoft.com/en-us/azure/architecture/best-practices/background-jobs
+https://www.google.com/search?q=%22message+queue%22+site%3A.edu&oq=%22message+queue%22+site%3A.edu&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQIRiPAtIBCDU2NTJqMGoxqAIAsAIA&sourceid=chrome&ie=UTF-8
+https://www.google.com/search?q=%22Key-Value+Store%22+site%3A.edu&sca_esv=4e144505dd75033c&sxsrf=ADLYWIKvl6tAAv_zJaGWUe0MjoDg3abifA%3A1736517007911&ei=jyWBZ4WkN_i1wN4Pm8SP0QI&ved=0ahUKEwjFp5z7peuKAxX4GtAFHRviIyoQ4dUDCBA&uact=5&oq=%22Key-Value+Store%22+site%3A.edu&gs_lp=Egxnd3Mtd2l6LXNlcnAiGyJLZXktVmFsdWUgU3RvcmUiIHNpdGU6LmVkdUjUClAAWOkIcAB4AZABAZgB0AGgAZoKqgEFNS41LjG4AQPIAQD4AQGYAgagAt0GwgILEAAYgAQYkQIYigXCAgUQABiABMICBhAAGBYYHsICBRAhGKABwgILEAAYgAQYhgMYigXCAgUQABjvBZgDAJIHAzEuNaAHgis&sclient=gws-wiz-serp
+https://samwho.dev/memory-allocation/?utm_source=blog.quastor.org&utm_medium=newsletter&utm_campaign=how-pinterest-stores-and-transfers-hundreds-of-terabytes-of-data-daily
+https://github.com/sobolevn/awesome-cryptography?utm_source=blog.quastor.org&utm_medium=newsletter&utm_campaign=how-pinterest-stores-and-transfers-hundreds-of-terabytes-of-data-daily#readme
+https://news.ycombinator.com/item?id=42799245
+https://stackoverflow.com/questions/3538021/why-do-we-use-base64
+https://news.ycombinator.com/item?id=24950437
+https://chriskiehl.com/article/thoughts-after-10-years
+https://newsletter.techworld-with-milan.com/p/computer-science-papers-every-developer
+https://github.com/keyvanakbary/learning-notes/blob/master/books/an-elegant-puzzle.md#useful-papers
+https://github.com/chiphuyen/aie-book/blob/main/resources.md
+https://www.cse.msu.edu/~cse870/Public/Lectures/SS2010/Notes/09b-design-patterns-notes.pdf
+https://web.eecs.umich.edu/~xwangsd/courses/w23/lectures/se-16-patterns.pdf
+https://news.ycombinator.com/item?id=42456492
+https://www.andrew.cmu.edu/course/14-712-s20/applications/ln/14712-l22.pdf
