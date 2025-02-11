@@ -75,3 +75,6 @@ https://www.cse.msu.edu/~cse870/Public/Lectures/SS2010/Notes/09b-design-patterns
 https://web.eecs.umich.edu/~xwangsd/courses/w23/lectures/se-16-patterns.pdf
 https://news.ycombinator.com/item?id=42456492
 https://www.andrew.cmu.edu/course/14-712-s20/applications/ln/14712-l22.pdf
+https://faculty.washington.edu/wlloyd/courses/tcss562/tcss562_lecture_17_f24_2up.pdf
+https://websites.umich.edu/~eecs381/lecture/notes.html
+https://courses.cs.washington.edu/courses/cse403/24wi/lectures/16-wrapup.pdf
