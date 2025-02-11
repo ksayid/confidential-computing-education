@@ -1,3 +1,4 @@
+https://thomasvanlaere.com/
 https://news.ycombinator.com/item?id=42570988
 https://www.bedlamresear.ch/posts/securing-tee-apps/#the-allure-of-tees
 https://vanishinggradients.fireside.fm/40
