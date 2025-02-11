@@ -1,3 +1,5 @@
+https://blog.codepipes.com/testing/software-testing-antipatterns.html?utm_source=blog.quastor.org&utm_medium=newsletter&utm_campaign=how-uber-built-an-exabyte-scale-system-for-data-processing
+https://aijobnetwork.com/jobs/openai-software-engineer-trusted-computing-and-cryptography
 https://thomasvanlaere.com/
 https://news.ycombinator.com/item?id=42570988
 https://www.bedlamresear.ch/posts/securing-tee-apps/#the-allure-of-tees
