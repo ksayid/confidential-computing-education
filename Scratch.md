@@ -1,3 +1,8 @@
+https://www.youtube.com/watch?v=OGEezPl9Ixk
+https://diginova1.gumroad.com/l/gokyd
+https://www.tealhq.com/job/software-engineer-iii-privacy-sandbox-android-on-device-personalization_1c946893-fd11-4141-9584-92a55e4c477d?target_titles=android+software+engineer&page=14
+https://arxiv.org/html/2502.11347v1
+https://www.youtube.com/watch?v=MME6r3bqAtQ
 https://blog.codepipes.com/testing/software-testing-antipatterns.html?utm_source=blog.quastor.org&utm_medium=newsletter&utm_campaign=how-uber-built-an-exabyte-scale-system-for-data-processing
 https://aijobnetwork.com/jobs/openai-software-engineer-trusted-computing-and-cryptography
 https://thomasvanlaere.com/
