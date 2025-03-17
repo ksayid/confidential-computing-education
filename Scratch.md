@@ -1,4 +1,7 @@
 https://www.youtube.com/watch?v=OGEezPl9Ixk
+https://www.youtube.com/watch?v=2Xyp8NkPLrg
+https://www.youtube.com/watch?v=32K_v7hRgUQ
+https://confidentialcomputing.io/2025/03/06/does-confidential-computing-work-with-containers/?utm_content=326800929&utm_medium=social&utm_source=twitter&hss_channel=tw-1276283047927840771
 https://diginova1.gumroad.com/l/gokyd
 https://www.tealhq.com/job/software-engineer-iii-privacy-sandbox-android-on-device-personalization_1c946893-fd11-4141-9584-92a55e4c477d?target_titles=android+software+engineer&page=14
 https://arxiv.org/html/2502.11347v1
