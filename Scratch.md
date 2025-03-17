@@ -1,5 +1,15 @@
 https://www.youtube.com/watch?v=OGEezPl9Ixk
 https://www.youtube.com/watch?v=2Xyp8NkPLrg
+https://www.youtube.com/watch?v=qX-m1HjiXJg
+https://www.intelligentciso.com/2025/03/11/confidential-computing-the-key-to-ai-security/#:~:text=In%20the%20context%20of%20AI,data%20and%20extract%20actionable%20insights.
+https://www.youtube.com/watch?v=Ah5FGrmj81M
+https://vanbulck.net/files/drads25-keynote.pdf
+https://arxiv.org/abs/2503.08256
+https://datatracker.ietf.org/meeting/122/materials/slides-122-hackathon-sessd-identity-crisis-for-attested-tls-in-confidential-computing-00
+https://www.lfdecentralizedtrust.org/blog/lf-decentralized-trust-mentorship-spotlight-cc-tools-support-for-fabric-private-chaincode
+https://medium.com/@wunderlichvalentin/the-end-of-just-trust-us-6141dbdaa07e
+https://www.tenforums.com/tech-news/218632-amd-helping-secure-gpus-advance-ai.html
+https://community.amd.com/t5/instinct-accelerators/helping-secure-gpus-that-advance-ai/ba-p/752288
 https://www.youtube.com/watch?v=32K_v7hRgUQ
 https://confidentialcomputing.io/2025/03/06/does-confidential-computing-work-with-containers/?utm_content=326800929&utm_medium=social&utm_source=twitter&hss_channel=tw-1276283047927840771
 https://diginova1.gumroad.com/l/gokyd
