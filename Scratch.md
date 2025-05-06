@@ -1,3 +1,7 @@
+https://www.youtube.com/watch?v=YIQi2geM5ys
+https://arxiv.org/pdf/2504.21518
+https://engineering.fb.com/2025/04/29/security/whatsapp-private-processing-ai-tools/
+https://techcommunity.microsoft.com/blog/azureconfidentialcomputingblog/azure-confidential-computing-vm-and-os-disk-encryption-through-hsm-backed-key-cm/4408926
 https://arxiv.org/pdf/2503.14611v1
 https://www.youtube.com/watch?v=OGEezPl9Ixk
 https://www.youtube.com/watch?v=2Xyp8NkPLrg
