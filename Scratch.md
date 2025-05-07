@@ -1,4 +1,5 @@
 https://www.youtube.com/watch?v=YIQi2geM5ys
+https://phala.network/posts/GPU-TEEs-is-Alive-on-OpenRouter
 https://arxiv.org/pdf/2504.21518
 https://engineering.fb.com/2025/04/29/security/whatsapp-private-processing-ai-tools/
 https://techcommunity.microsoft.com/blog/azureconfidentialcomputingblog/azure-confidential-computing-vm-and-os-disk-encryption-through-hsm-backed-key-cm/4408926
