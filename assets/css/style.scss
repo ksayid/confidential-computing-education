@@ -1,0 +1,16 @@
+---
+---
+@import "{{ site.theme }}";
+
+/* Custom styles */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #f8f9fa;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
