@@ -1,3 +1,8 @@
+---
+title: Containers
+layout: page
+---
+
 # Containers
 
 ## Open Container Initiative (OCI)
