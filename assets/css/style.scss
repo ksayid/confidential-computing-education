@@ -1,7 +1,7 @@
 ---
 ---
 
-@import "{{ site.theme }}";
+@import "jekyll-theme-cayman";
 
 /* Custom styles */
 body {
@@ -20,22 +20,23 @@ main {
   padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
+  gap: 1rem;                    /* roomy spacing */
 }
 
 .notes-list li {
   background: #fff;
-  border-radius: 6px;
+  border-radius: 6px;           /* subtle rounded corners */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .notes-list a {
   display: block;
-  padding: 1rem;
+  padding: 0.75rem;             /* compromise between 0.5 rem and 1 rem */
   color: #0366d6;
   text-decoration: none;
+  border-radius: 6px;           /* keeps the hit-area nicely rounded */
 }
 
 .notes-list a:hover {
-  text-decoration: underline;
+  text-decoration: underline;   /* clear hover feedback */
 }

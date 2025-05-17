@@ -1,12 +1,10 @@
 ---
-layout: home
+layout: default
 title: Confidential Computing Notes
 ---
 
 Welcome! This site collects my notes on confidential computing topics.
 Select a page below to read more.
-
-## Notes
 
 <ul class="notes-list">
   <li><a href="Confidential_Computing_Concepts/">Confidential Computing Concepts</a></li>
