@@ -1,0 +1,33 @@
+---
+---
+@import "jekyll-theme-cayman";
+
+/* Custom styles */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #f8f9fa;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.notes-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.5rem;
+}
+
+.notes-list a {
+  display: block;
+  background: #fff;
+  padding: 0.5rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: #0366d6;
+}
