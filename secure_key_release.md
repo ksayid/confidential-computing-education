@@ -1,3 +1,8 @@
+---
+title: Secure Key Release
+layout: page
+---
+
 # Secure Key Release
 ## Key Management System (KMS)
 A KMS is a piece of software that performs cryptographic operations (such as encryption and managing private keys). It is usually embedded inside a secure hardware component or inside hardware security modules (also referred to as HSMs).
