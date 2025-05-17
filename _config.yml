@@ -1,0 +1,6 @@
+title: Confidential Computing Notes
+markdown: kramdown
+kramdown:
+  input: GFM
+theme: minima
+permalink: pretty

@@ -1,3 +1,8 @@
+---
+title: Kata Containers
+layout: page
+---
+
 # Kata Containers
 
 **Kata Containers** is an open-source project providing lightweight virtual machines (VMs) with the agility and speed of traditional containers. By merging hardware virtualization and containerization, Kata offers stronger isolation while retaining near-native performance. It originated from two projects:

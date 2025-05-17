@@ -1,3 +1,8 @@
+---
+title: Scratch
+layout: page
+---
+
 https://www.youtube.com/watch?v=YIQi2geM5ys
 https://phala.network/posts/GPU-TEEs-is-Alive-on-OpenRouter
 https://arxiv.org/pdf/2504.21518
