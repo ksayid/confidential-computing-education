@@ -5,7 +5,6 @@ _site/
 vendor/
 Gemfile.lock
 Gemfile
-_site/
 
 # Operating system files
 .DS_Store
