@@ -1,6 +1,6 @@
 ---
 title: Open Policy Agent
-layout: page
+layout: default
 ---
 
 # Open Policy Agent

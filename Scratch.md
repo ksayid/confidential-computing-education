@@ -1,6 +1,6 @@
 ---
 title: Scratch
-layout: page
+layout: default
 ---
 
 https://www.youtube.com/watch?v=YIQi2geM5ys

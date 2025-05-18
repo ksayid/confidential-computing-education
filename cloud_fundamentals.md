@@ -1,6 +1,6 @@
 ---
 title: Cloud Fundamentals
-layout: page
+layout: default
 ---
 
 ## Autoscaling

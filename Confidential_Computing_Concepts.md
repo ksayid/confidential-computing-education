@@ -1,6 +1,6 @@
 ---
 title: Confidential Computing Concepts
-layout: page
+layout: default
 ---
 
 # Confidential Computing Concepts

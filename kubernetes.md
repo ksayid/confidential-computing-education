@@ -1,6 +1,6 @@
 ---
 title: Kubernetes
-layout: page
+layout: default
 ---
 
 https://eksclustergames.com/challenge/2

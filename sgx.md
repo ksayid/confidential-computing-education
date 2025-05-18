@@ -1,6 +1,6 @@
 ---
 title: SGX
-layout: page
+layout: default
 ---
 
 After giving this some additional thought, I am not entirely convinced that running an existing application, like the one from my scenario, in a containerized SGX-powered wrapper is a wise idea. Let me explain.

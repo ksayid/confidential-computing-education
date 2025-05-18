@@ -1,6 +1,6 @@
 ---
 title: GRPC
-layout: page
+layout: default
 ---
 
 # GRPC
