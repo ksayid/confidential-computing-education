@@ -63,8 +63,6 @@ The **TCB** is the collection of hardware, software, and firmware components ess
 * **Cryptographic**: Often involves digital signatures, certificates, or platform-specific endorsements.
     * Example: Intel SGX uses an Intel Attestation Service that signs an enclave’s measurement so a remote party can validate that the enclave matches expected software.
 
-#### NEW SECTIONS BELOW
-
 ### Confidential Virtual Machines (CVMs)
 
 **What is a Confidential Virtual Machine (CVM)?**  
@@ -200,4 +198,54 @@ Even if the TCB itself is trustworthy, it must be attested (verified) by a party
     * Minimizes the risk of conflicts of interest and ensures an unbiased security assessment.
 
 **Potential Conflict**: Relying on the CSP’s own attestation service can introduce a conflict of interest. Unless there is a legally separate business unit with its own governance, a single CSP acting as both the platform operator and the attestation authority can undermine the independence required for truly confidential workloads. Consequently, many enterprises prefer to use truly independent attestation—either run by themselves (first-party) or by a trusted, external third-party.
+
+#### Additional Overview of Confidential Computing
+
+### What is Confidential Computing?
+**Confidential Computing** protects data **in use** by performing computation inside a hardware-based, attested trusted execution environment (TEE) or similar construct.  
+- **Data at rest**: Typically protected by disk encryption.  
+- **Data in transit**: Typically protected by TLS or other network encryption.  
+- **Data in use**: This is where confidential computing solutions come in, encrypting the data in memory and isolating it from the rest of the system.
+
+The key innovation is **reducing the number of trusted parties or components**. By moving security guarantees into the lowest layers of hardware (with minimal dependencies), you remove operating system vendors, driver vendors, platform providers, and service-provider admins from your circle of trust. This drastically lowers risk of compromise if any of those layers are breached.
+
+---
+
+#### Attestation Models (Analogy)
+**What is attestation?**  
+- The “**Passport/Driver’s License**” model: You don’t trust the individual directly, but you trust the official document they present—similarly, you trust the enclave because it presents a valid hardware-signed attestation.
+- The “**Background Check**” model: You thoroughly investigate the entity’s environment to decide if you trust it. This is a deeper, more manual version of verifying software, hardware, logs, etc.
+
+---
+
+#### Enclave Properties Recap
+1. **Isolation**  
+   Enclaves act independently from the rest of the system. No other component—even the OS or hypervisor—can access enclave memory.
+
+2. **Runtime Memory Encryption**  
+   Anything processed or stored inside the enclave is always encrypted in memory.
+
+3. **Sealing**  
+   An enclave can securely store data on untrusted storage by encrypting and binding it to the enclave’s identity.
+
+4. **Remote Attestation**  
+   An enclave can prove to a remote party that it’s running on genuine secure hardware, and that its code/configuration have not been tampered with.
+
+---
+
+#### Use Cases
+- **Regulatory Compliance (GDPR, HIPAA)**: Encrypted data in enclaves helps fulfill stringent requirements.  
+- **Encourage Data Sharing**: Cloud-based data analytics or ML training without exposing raw data.  
+- **Multi-party Computations**: Different organizations securely combine sensitive data for analytics (e.g., healthcare or finance).  
+- **Fraud Detection**: Retailers and credit-card companies can share data for collaborative fraud detection inside a TEE.  
+- **Automotive / IoT**: Sensor data from vehicles can be analyzed securely in an enclave.  
+
+---
+
+#### Another View on Remote Attestation
+Think of a secure enclave as a **super-secure black box**. You provide the code and data to this black box, and it processes them while preventing any outside party from peeking in.  
+- You get a **certificate** (quote) that states the results were produced by your specific code and data.  
+- This certificate is signed by a private key unique to the CPU (or TEE device).  
+- A remote party can verify the signature and confirm the legitimacy of the enclave and the processed data.
+
 <script src="{{ '/assets/js/dark-mode.js' | relative_url }}"></script>
