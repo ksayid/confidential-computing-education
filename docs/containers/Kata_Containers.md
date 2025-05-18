@@ -15,7 +15,7 @@ layout: default
 * Kata Containers: A drop-in container runtime (like runc) that, instead of launching a container process directly on the host, launches a small VM for that container or pod.
 
 
-![alt text](image.png)
+![alt text](../img/image.png)
 
 ## Key Advantages and Features
 1. Lightweight VMs with Container Performance: Each container runs inside its own minimal VM, leveraging a lean guest OS and kernel. This approach allows near-native performance, much like Docker or Kubernetes containers.
@@ -53,7 +53,7 @@ With each pod in its own dedicated kernel and TEE boundary, even a privileged us
     * Exposes container layers as read-only block devices protected by dm-verity, and the Kata agent enforces policies (e.g., verifying root hash) before mounting.
 
 Below is a high-level architectural diagram (in concept) showing these components and how they fit together for VM-based CoCo.
-![alt text](image-5.png)
+![alt text](../img/image-5.png)
 
 ## Attestation in Kata Confidential Containers
 Attestation is at the heart of confidential computing because it provides a way for a workload owner to verify that the hardware and software environment running their workload is trustworthy. In other words, attestation ensures that only known and verified components are running inside the TEE-protected environment—thereby guarding sensitive data and code from untrusted infrastructure providers or external attackers.
@@ -62,7 +62,7 @@ Kata Confidential Containers (often referred to as CoCo) follows a hardware-base
 
 The Confidential Containers project follows the IETF Remote Attestation Procedures (RATS) “background check” model. Under this model, an Attester (the confidential guest VM) sends evidence to a Relying Party (which typically includes a Key Broker Service and an Attestation Service) to prove trustworthiness. If the verification passes, the Relying Party releases secrets or tokens that enable the workload to run securely.
 
-![alt text](image-6.png)
+![alt text](../img/image-6.png)
 
 ### Key Roles in the Attestation Process
 Attester
@@ -159,8 +159,8 @@ Several open-source components come together to enable Kata Confidential Contain
 
 When a user creates a Kubernetes pod with an encrypted container image, the kata-agent coordinates with these components (image-rs, ocicrypt-rs, attestation-agent, KBS, KMS) to validate the TEE environment and securely retrieve decryption keys before launching the container workload.
 
-![alt text](image-7.png)
-![alt text](image-8.png)
+![alt text](../img/image-7.png)
+![alt text](../img/image-8.png)
 
 ## Confidential Containers on AKS
 When it comes to Azure Kubernetes Service (AKS), CoCo leverages AMD SEV-SNP memory encryption for pods in TEEs, using Kata Containers for confidential workloads. This allows:
@@ -173,9 +173,9 @@ When it comes to Azure Kubernetes Service (AKS), CoCo leverages AMD SEV-SNP memo
 ### Components
 The below architecture diagram shows how confidential pods sit on top of the Azure Linux Container Host and Cloud Hypervisor, which in turn run on TEE-capable hardware for memory encryption and attestation.
 
-![alt text](image-3.png)
-![alt text](image-4.png)
-![alt text](image-9.png)
+![alt text](../img/image-3.png)
+![alt text](../img/image-4.png)
+![alt text](../img/image-9.png)
 
 
 * Kata "CoCo" Agent: A special agent inside the micro-VM for confidential pods.
@@ -187,13 +187,13 @@ The below architecture diagram shows how confidential pods sit on top of the Azu
 Running Kata Containers on Azure is made possible by the Pod Sandboxing feature in AKS. It leverages nested virtualization for improved isolation:
 * Each pod runs inside a nested confidential child VM that is tied to the pod’s lifecycle. The outer VM (the AKS agent node) is itself a confidential VM, ensuring multiple layers of isolation.
 * This feature requires specialized AMD SEV-SNP Confidential Child VM SKUs that support nested virtualization
-![alt text](image-11.png)
+![alt text](../img/image-11.png)
 
 In scenarios without nested virtualization support (or when you prefer a different architecture), you can use the Cloud API Adaptor to spawn an entirely separate confidential VM in a cloud environment. This approach:
 * Uses Kata’s “peer-pods” feature to provision a separate Confidential VM in the public cloud when a new pod is created.
 * Allows you to isolate container workloads without requiring nested virtualization.
 * Can incur higher cloud costs but often yields good performance and scalability benefits.
-![alt text](image-10.png)
+![alt text](../img/image-10.png)
 
 ### Security Policy for Kata Confidential Containers
 In Confidential Computing, the goal is to protect data in use by running computations inside a hardware-attested TEE. On AKS, Confidential Containers implement this principle by running each Kubernetes pod inside a Utility VM (UVM) protected by AMD SEV-SNP.

@@ -12,6 +12,10 @@ Select a page below to read more.
   <li><a href="sgx/">SGX</a></li>
   <li><a href="secure_key_release/">Secure Key Release</a></li>
   <li><a href="encrypted_filesystem/">Encrypted Filesystem</a></li>
+  <li><a href="docs/core/Confidential_Computing_Concepts.md">Confidential Computing Concepts</a></li>
+  <li><a href="docs/core/sgx.md">SGX</a></li>
+  <li><a href="docs/core/secure_key_release.md">Secure Key Release</a></li>
+  <li><a href="docs/core/encrypted_filesystem.md">Encrypted Filesystem</a></li>
 </ul>
 
 ## Container Technologies {#container-tech}
@@ -20,16 +24,24 @@ Select a page below to read more.
   <li><a href="Kata_Containers/">Kata Containers</a></li>
   <li><a href="confidential_containers/">Confidential Containers</a></li>
   <li><a href="kubernetes/">Kubernetes</a></li>
+  <li><a href="docs/containers/containers.md">Containers</a></li>
+  <li><a href="docs/containers/Kata_Containers.md">Kata Containers</a></li>
+  <li><a href="docs/containers/confidential_containers.md">Confidential Containers</a></li>
+  <li><a href="docs/containers/kubernetes.md">Kubernetes</a></li>
 </ul>
 
 ## Tools & Frameworks {#tools}
 <ul class="notes-list notes-section">
   <li><a href="Policy_Generation/">Open Policy Agent</a></li>
   <li><a href="grpc/">gRPC</a></li>
+  <li><a href="docs/tools/Policy_Generation.md">Open Policy Agent</a></li>
+  <li><a href="docs/tools/grpc.md">gRPC</a></li>
 </ul>
 
 ## Miscellaneous {#misc}
 <ul class="notes-list notes-section">
   <li><a href="cloud_fundamentals/">Cloud Fundamentals</a></li>
   <li><a href="Scratch/">Scratch</a></li>
+  <li><a href="docs/misc/cloud_fundamentals.md">Cloud Fundamentals</a></li>
+  <li><a href="docs/misc/Scratch.md">Scratch</a></li>
 </ul>

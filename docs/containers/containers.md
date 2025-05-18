@@ -70,8 +70,8 @@ Linux namespaces isolate resources at the kernel level, ensuring each container 
     * Docker, Podman, and other engines integrate with SELinux/AppArmor profiles.
 
 ## Docker Architecture and Components
-![alt text](image-1.png)
-![alt text](image-2.png)
+![alt text](../img/image-1.png)
+![alt text](../img/image-2.png)
 
 ### Docker Engine (Client-Server Model)
 * Docker CLI: User-facing command-line tool (docker build, docker run, etc.).
