@@ -3,6 +3,8 @@ title: Cloud Fundamentals
 layout: default
 ---
 
+[← Back to Main Page]({{ "/" | relative_url }})
+
 ## Autoscaling
 Autoscaling is the process of dynamically allocating and deallocating resources to match an application’s performance requirements.
 The goal is to maintain desired performance levels and meet SLAs while minimizing cost. There are two ways to scale:

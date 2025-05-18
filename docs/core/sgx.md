@@ -3,6 +3,8 @@ title: SGX
 layout: default
 ---
 
+[← Back to Main Page]({{ "/" | relative_url }})
+
 After giving this some additional thought, I am not entirely convinced that running an existing application, like the one from my scenario, in a containerized SGX-powered wrapper is a wise idea. Let me explain.
 
 The solutions I’ve encountered typically employ something akin to a library OS, which is an operating system implemented as a library. This setup allows your application to make Linux system calls as usual. However, behind the scenes, the library OS intercepts those calls and executes its own implementation of the syscall. Running the syscall inside an SGX enclave is not always possible or does not always behave the same as against a ‘normal’ Linux kernel, which is why they have their own specific implementation that works inside of SGX. For instance, working with networking syscalls within SGX is quite tricky and often requires unconventional methods. So, unless you are prepared to invest the effort to port and extensively test your application under various constraints, it appears uncertain whether an existing (legacy) app will behave as expected.
