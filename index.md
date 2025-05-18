@@ -4,7 +4,7 @@ title: Confidential Computing Notes
 description: A living notebook on trusted execution, secure containers, and cloud security.
 ---
 
-<p><a href="/search/">Search this site</a></p>
+<p><a href="{{ '/search/' | relative_url }}">Search this site</a></p>
 
 <section id="core-concepts">
   <h2>Core Concepts</h2>
