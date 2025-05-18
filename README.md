@@ -14,8 +14,10 @@ Some topics include:
 Confidential Computing is all about protecting sensitive data while in use. It leverages hardware-based Trusted Execution Environments (TEEs) to ensure data, application code, and machine learning models remain secure even when attackers have full privileges on a system. As enterprise data moves off-premises into the cloud, confidential computing is becoming a crucial part of building zero-trust architectures.
 
 ## Repository Structure
-All documentation now lives under the `docs/` directory. Content is grouped by
-topic so new contributors can easily find the appropriate location.
+Most site content lives under the `docs/` directory. Assets such as CSS and
+JavaScript remain at the repository root to avoid issues with GitHub Pages.
+Content is grouped by topic so new contributions can easily find the appropriate
+location.
 
 ```
 docs/
@@ -23,8 +25,14 @@ docs/
 ├── containers
 ├── tools
 ├── misc
-├── img
-└── assets
+└── img
+_config.yml
+index.md
+search.md
+search.json
+assets/
+├── css
+└── js
 ```
 
 ## License
