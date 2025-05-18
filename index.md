@@ -1,13 +1,8 @@
 ---
 layout: default
 title: Confidential Computing Notes
-description: Concise, practical notes on Intel SGX, confidential containers, OPA, and more
+description: A living notebook on trusted execution, secure containers, and cloud security.
 ---
-
-<header class="hero">
-  <h1>Confidential Computing Notes</h1>
-  <p class="tagline">A living notebook on trusted execution, secure containers, and cloud security.</p>
-</header>
 
 <section id="core-concepts">
   <h2>Core Concepts</h2>
