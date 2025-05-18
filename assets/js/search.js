@@ -9,7 +9,8 @@ let   index            = [];
 // Fetch the generated index, accounting for any base URL the site might use
 fetch('{{ "/search.json" | relative_url }}')
   .then(response => response.json())
-  .then(data => { index = data; });
+  .then(data => { index = data; })
+  .catch(err => console.error('Failed to load search index:', err));
 
 searchInput.addEventListener('input', () => {
   const query = searchInput.value.trim().toLowerCase();
@@ -25,11 +26,8 @@ searchInput.addEventListener('input', () => {
   results.slice(0, 10).forEach(page => {
     const item = document.createElement('li');
     const link = document.createElement('a');
-
-    // `page.url` is already absolute in the JSON, so no extra prefixing needed
     link.href        = page.url;
-    link.textContent = page.title;
-
+    link.textContent = page.title || page.url;
     item.appendChild(link);
     resultsContainer.appendChild(item);
   });
