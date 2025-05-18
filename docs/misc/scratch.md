@@ -204,3 +204,4 @@ Continuous Deployment/Delivery (CD) refers to the practice of automatically depl
 Together, CI/CD enables software teams to rapidly and safely develop, test, and deploy changes to the codebase, improving the speed and quality of software delivery while reducing the risk of errors and downtime.
 
 ### b
+<script src="{{ '/assets/js/dark-mode.js' | relative_url }}"></script>
