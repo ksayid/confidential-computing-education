@@ -2,6 +2,10 @@
 _site/
 .sass-cache/
 .bundle/
+vendor/
+Gemfile.lock
+Gemfile
+_site/
 
 # Operating system files
 .DS_Store
