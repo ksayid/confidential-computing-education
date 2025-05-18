@@ -63,6 +63,97 @@ The **TCB** is the collection of hardware, software, and firmware components ess
 * **Cryptographic**: Often involves digital signatures, certificates, or platform-specific endorsements.
     * Example: Intel SGX uses an Intel Attestation Service that signs an enclave’s measurement so a remote party can validate that the enclave matches expected software.
 
+#### NEW SECTIONS BELOW
+
+### Confidential Virtual Machines (CVMs)
+
+**What is a Confidential Virtual Machine (CVM)?**  
+A CVM is a virtual machine that uses hardware-level memory encryption to protect its runtime data (memory).  
+- It ensures that neither the host operating system, the hypervisor, nor other VMs on the host can read the VM’s memory, even though they share the same physical machine.
+
+**How is this achieved?**  
+- The CPU itself provides support for memory encryption (e.g., AMD SEV-SNP).  
+- When the CPU encrypts a CVM’s memory pages, only the CVM “knows” the decryption key; the hypervisor does not.  
+- The encryption keys stay in secure registers inside the CPU and never leave it.
+
+**Why is it significant?**  
+- Traditional VMs rely on trusting many layers (firmware, hypervisor, host OS). If any of those is compromised, the VM can be breached.  
+- Confidential computing (CVMs, enclaves, etc.) reduces the TCB by removing the hypervisor and host OS from the circle of trust.  
+- It extends the idea of protecting data at rest and in transit to also include data in use (memory encryption).
+
+### TCB and Remote Attestation in CVMs
+- **TCB**: With CVMs, hardware memory encryption and remote attestation reduce how many components you must trust.
+- **Remote Attestation**: 
+  - You measure (hash) the boot chain (e.g., bootloader, kernel) at VM startup.  
+  - Compare these measurements to expected values—if they match, you “attest” that the VM’s software stack is unmodified.  
+  - Only after successful attestation do you provide sensitive data to the CVM.
+
+### Practical Benefits of CVMs
+- **Isolation from a malicious hypervisor**: Even if an attacker gains control over the hypervisor, they cannot decrypt the CVM’s memory.
+- **Attestation**: Ensures you’re running the code you trust before loading sensitive data.
+- **Lower risk for co-tenant attacks**: Other VMs on the same physical host cannot inspect or tamper with your memory.
+
+### CIA Triad in TEEs (Refresher)
+- **Confidentiality**: Memory encryption ensures data inside a TEE or CVM is not visible from the outside.  
+- **Integrity**:
+  - Attestation verifies a trusted state at boot.  
+  - Encryption mechanisms like AES-GCM can detect malicious bit-flips in memory.  
+- **Availability**: TEEs/CVMs do not inherently guarantee availability—cloud providers can still suspend or terminate the VM. Availability relies on provider SLAs, redundancy, etc.
+
+### Confidential Computing in Kubernetes
+1. **Option 1: “Wrap the whole cluster”**  
+   - Run the control plane and worker nodes inside confidential VMs so that the cloud provider (and other tenants) cannot access your cluster data.  
+   - Straightforward if you trust all cluster components and just want to shield them from the outside world.
+
+2. **Option 2: Per-Node or Per-Workload TEE**  
+   - Harder if you need to protect a single worker node from an untrusted admin in the same cluster.  
+   - The kubelet generally has broad control over pods, which can undermine TEE guarantees.  
+   - True multi-tenant “untrusted admin” approaches require more careful design (e.g., ephemeral micro-VMs for each pod).
+
+### Multi-tenant vs. Single-tenant Security
+- Major cloud providers often run Kubernetes in multi-tenant ways (shared control plane, multi-tenant etcd).  
+- Confidential computing (enclaves, CVMs) shields your workload from external threats, but not necessarily from other components in the same logical environment if they share trust boundaries.
+
+### Storing Secrets & etcd
+- Confidential computing alone does not fully solve storing secrets in Kubernetes etcd.  
+- You could isolate etcd in an enclave, but architectural changes might be required.  
+- Evaluate your threat model to see if enclaves add enough protection for your use case.
+
+### Confidential Containers (COCO)
+- COCO integrates Kubernetes with confidential computing primitives to run each pod inside a confidential VM.  
+- Builds on Kata Containers or AWS Firecracker, but adds memory encryption + remote attestation to ensure stronger isolation for each container.  
+- Gives the regular “pod” interface but behind the scenes uses hardware-level isolation.
+
+### Performance Overhead
+- Enabling confidential computing (CVMs, enclaves) typically introduces a small overhead (1–5%, sometimes up to 10% in heavy I/O scenarios).  
+- Often acceptable in scenarios dealing with highly sensitive data (finance, healthcare, secure ML, etc.).
+
+### Remote Attestation & Supply Chain
+- Remote attestation offers cryptographic proof of what’s running inside the environment (e.g., OS, binaries).  
+- Useful for verifiable build runners (CI/CD): you can store an attestation report proving your build toolchain is unmodified.  
+- Strengthens the software supply chain by ensuring no tampering with the build environment.
+
+### Confidential Virtual Machines (CVMs) and TEEs
+- CVMs are an easy-to-use approach offered by many cloud providers for confidential computing.  
+- They isolate workloads such that even the cloud provider’s hypervisor can’t see inside.  
+- Attestation verifies the VM at the hardware level.
+
+### Trusted Platform Modules (TPMs) vs. Hardware Security Modules (HSMs)
+- **TPMs**:
+  - Relatively inexpensive; widely available on modern PCs.  
+  - Very limited storage (a few keys), perform basic crypto operations (signing, sealing).  
+
+- **HSMs**:
+  - More expensive, typically used in large enterprises or regulated industries.  
+  - Perform cryptographic operations on dedicated hardware; keys never leave the secure device.  
+  - Often have anti-tampering mechanisms to protect secrets if physically attacked.
+
+### Containers vs. CVMs
+- **Containers**: OS-level isolation; rely on kernel namespaces/cgroups.  
+- **CVMs**: Hardware-level memory encryption and isolation; the hypervisor cannot see inside them.  
+- Confidential VMs are specifically focused on cryptographically securing data “in use” from even the underlying cloud/hardware host.  
+- A container can run inside a CVM for additional defense in depth, but that typically comes with extra performance overhead.
+
 ## Offerings in Confidential Computing
 ### Capability Level
 * Direct use of chip-level CC features via OS/hardware interfaces.
