@@ -3,6 +3,8 @@ title: Scratch
 layout: default
 ---
 
+[← Back to Main Page]({{ "/" | relative_url }})
+
 https://www.youtube.com/watch?v=YIQi2geM5ys
 https://phala.network/posts/GPU-TEEs-is-Alive-on-OpenRouter
 https://arxiv.org/pdf/2504.21518

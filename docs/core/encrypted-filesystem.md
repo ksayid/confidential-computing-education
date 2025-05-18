@@ -3,6 +3,8 @@ title: Encrypted Filesystem
 layout: default
 ---
 
+[← Back to Main Page]({{ "/" | relative_url }})
+
 # Foundations
 
 A **filesystem** is responsible for organizing, storing, and retrieving data on a storage device, like a hard drive or SSD. It manages files and directories and controls how data is stored and retrieved. The goal of a cryptographic file system is to secure data stored on disk through encryption. Without the correct encryption key, the data is unreadable to unauthorized users. 
