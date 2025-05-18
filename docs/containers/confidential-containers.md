@@ -94,7 +94,7 @@ All data **in use** (in memory and CPU registers) is protected by a hardware-bas
 - Provide strong assurances of data confidentiality, code integrity, and data integrity in a cloud environment with hardware-based confidential computing offerings.  
 - Help isolate your containers from other container groups/pods, as well as from the VM node OS kernel.
 
-## [NEW SECTION] When to Use Confidential VMs vs. Confidential Containers
+## When to Use Confidential VMs vs. Confidential Containers
 
 You might deploy your solution on **Confidential VMs** if:
 
