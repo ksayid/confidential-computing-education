@@ -5,6 +5,7 @@
 [![GitHub Repo stars](https://img.shields.io/github/stars/ksayid/confidential-computing-notes?style=social)](https://github.com/ksayid/confidential-computing-notes/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/ksayid/confidential-computing-notes?style=social)](https://github.com/ksayid/confidential-computing-notes/network)
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](https://github.com/ksayid/confidential-computing-notes/issues)
+
 This repository contains my personal notes, resources, and explorations related to confidential computing. I've organized these learnings into Markdown files focusing on key concepts and technologies powering confidential computing in the cloud. By organizing this knowledge in a single place, I can track my growth and hopefully help others explore confidential computing.
 
 Some topics include:
