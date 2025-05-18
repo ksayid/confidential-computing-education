@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: default
 title: Confidential Computing Notes
 ---
 
@@ -9,9 +9,9 @@ Select a page below to read more.
 ## Core Concepts {#core-concepts}
 <ul class="notes-list notes-section">
   <li><a href="Confidential_Computing_Concepts/">Confidential Computing Concepts</a></li>
-  <li><a href="cloud_fundamentals/">Cloud Fundamentals</a></li>
   <li><a href="sgx/">SGX</a></li>
   <li><a href="secure_key_release/">Secure Key Release</a></li>
+  <li><a href="encrypted_filesystem/">Encrypted Filesystem</a></li>
 </ul>
 
 ## Container Technologies {#container-tech}
@@ -26,10 +26,10 @@ Select a page below to read more.
 <ul class="notes-list notes-section">
   <li><a href="Policy_Generation/">Open Policy Agent</a></li>
   <li><a href="grpc/">gRPC</a></li>
-  <li><a href="encrypted_filesystem/">Encrypted Filesystem</a></li>
 </ul>
 
 ## Miscellaneous {#misc}
 <ul class="notes-list notes-section">
+  <li><a href="cloud_fundamentals/">Cloud Fundamentals</a></li>
   <li><a href="Scratch/">Scratch</a></li>
 </ul>
