@@ -1,6 +1,7 @@
 ---
 title: Scratch
 layout: default
+search_exclude: true
 ---
 
 [← Back to Main Page]({{ "/" | relative_url }})
