@@ -1,0 +1,7 @@
+# Jekyll build artifacts
+_site/
+.sass-cache/
+.bundle/
+
+# Operating system files
+.DS_Store
