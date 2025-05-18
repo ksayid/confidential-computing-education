@@ -9,7 +9,15 @@ search_exclude: true
 * TOC
 {:toc}
 
-
+https://www.youtube.com/watch?v=3G3BNMTx3bE&list=PLBexUsYDijaz09nH8BVPmPio_16V115i4&index=27
+https://www.youtube.com/watch?v=tZGjr2Kwpls&list=PLBexUsYDijaz09nH8BVPmPio_16V115i4&index=32
+https://www.youtube.com/watch?v=QNX5JfV390c&list=PLBexUsYDijaz09nH8BVPmPio_16V115i4&index=38&t=3s
+https://www.youtube.com/watch?v=oPIiX6vyih8&list=PLBexUsYDijaz09nH8BVPmPio_16V115i4&index=52
+https://www.youtube.com/watch?v=q9pYsss8huk&list=PLBexUsYDijaz09nH8BVPmPio_16V115i4&index=75&t=1954s
+https://www.youtube.com/watch?v=UgzIwoxX7Wg&list=PLBexUsYDijaz09nH8BVPmPio_16V115i4&index=76&t=2s
+https://www.youtube.com/watch?v=r_SPWqB1l-c&list=PLBexUsYDijaz09nH8BVPmPio_16V115i4&index=77
+https://www.youtube.com/playlist?list=PLBexUsYDijaz14Mot8_6rAbxkoF4iS6PZ
+https://www.youtube.com/watch?v=KdIw9DzA1Uo&list=PLBexUsYDijawgCdEqEDBj3cUCovUS1MM5&index=29
 https://www.youtube.com/watch?v=YIQi2geM5ys
 https://phala.network/posts/GPU-TEEs-is-Alive-on-OpenRouter
 https://arxiv.org/pdf/2504.21518
