@@ -1,49 +1,57 @@
 ---
+# assets/css/style.scss  ← leave this front-matter so Jekyll processes the file
 ---
-@import "{{ site.theme }}";
 
-/* Custom styles */
-body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  background-color: #f8f9fa;
+@import "{{ site.theme }}";   /* 1️⃣ pull in the Cayman theme first */
+
+/* ─────────────────── Base / layout tweaks ─────────────────── */
+html            { scroll-behavior: smooth; }
+body            { background:#f8f9fa; font-family:"Segoe UI", Arial, sans-serif; }
+
+main,
+.page-content   { max-width:900px; margin:0 auto; padding:1rem; }
+
+/* ─────────────────── Hero band ─────────────────── */
+.hero           { text-align:center; margin:2rem 0 3rem; }
+.hero .tagline  { margin-top:.5rem; font-size:1.1rem; color:#6c757d; }
+
+/* ─────────────────── Section headings & spacing ─────────────────── */
+section         { margin-bottom:3.5rem; }
+section h2      { font-size:1.5rem; margin-bottom:1rem;
+                  border-bottom:2px solid #e1e4e8; padding-bottom:.25rem; }
+
+/* ─────────────────── Card grid (new) ─────────────────── */
+/* Keep .notes-list alias so old markup still works */
+.card-grid,
+.notes-list     {
+  --min:210px;                              /* min card width  */
+  display:grid; gap:1rem;
+  grid-template-columns:repeat(auto-fill,minmax(var(--min),1fr));
+  list-style:none; margin:0; padding:0;
 }
 
-main {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 1rem;
+.card-grid a,
+.notes-list a   {
+  display:block; padding:.85rem 1rem;
+  background:#ffffff; border-radius:8px;
+  box-shadow:0 2px 5px rgba(0,0,0,.06);
+  text-decoration:none; color:#0366d6; font-weight:600;
+  transition:transform .12s, box-shadow .12s, background-color .12s;
 }
 
-.page-content {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 1rem;
+.card-grid a:hover,
+.card-grid a:focus,
+.notes-list a:hover,
+.notes-list a:focus {
+  transform:translateY(-2px);
+  background-color:#eaeaea;
+  box-shadow:0 4px 10px rgba(0,0,0,.1);
 }
 
-.notes-section {
-  margin-bottom: 2rem;
-}
-
-.notes-list {
-  list-style: none;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1rem;
-}
-
-.notes-list a {
-  display: block;
-  background: #ffffff;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  text-decoration: none;
-  color: inherit;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.notes-list a:hover {
-  background-color: #eaeaea;
-  transform: translateY(-3px);
+/* ─────────────────── Dark-mode tweaks ─────────────────── */
+@media (prefers-color-scheme: dark) {
+  body                { background:#0d1117; }
+  section h2          { border-bottom-color:#30363d; }
+  .card-grid a,
+  .notes-list a       { background:#161b22; color:#58a6ff; }
 }
