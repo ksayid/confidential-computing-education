@@ -1,5 +1,5 @@
 # Confidential Computing Notes
-This repository contains my personal notes, resources, and explorations related to confidential computing, compiled from my experiences as a software engineer at Microsoft. I've organized these learnings into Markdown files focusing on key concepts and technologies that power confidential computing in the cloud. By organizing this knowledge in a single place, I can track my growth and hopefully help others explore confidential computing.
+This repository contains my personal notes, resources, and explorations related to confidential computing. I've organized these learnings into Markdown files focusing on key concepts and technologies powering confidential computing in the cloud. By organizing this knowledge in a single place, I can track my growth and hopefully help others explore confidential computing.
 
 Some topics include:
 * Trusted Execution Environments
@@ -8,7 +8,7 @@ Some topics include:
 * Attestation Protocols
 
 > [!NOTE]
-> All opinions and explanations in this repo are my own and do not necessarily reflect the official stance of Microsoft or Azure.
+> All opinions and explanations in this repo are my own and do not necessarily reflect the official stance of my employer.
 
 ## What is Confidential Computing?
 Confidential Computing is all about protecting sensitive data while in use. It leverages hardware-based Trusted Execution Environments (TEEs) to ensure data, application code, and machine learning models remain secure even when attackers have full privileges on a system. As enterprise data moves off-premises into the cloud, confidential computing is becoming a crucial part of building zero-trust architectures.
@@ -16,7 +16,7 @@ Confidential Computing is all about protecting sensitive data while in use. It l
 ## Repository Structure
 Most site content lives under the `docs/` directory. Assets such as CSS and
 JavaScript remain at the repository root to avoid issues with GitHub Pages.
-Content is grouped by topic so new contributions can easily find the appropriate
+Content is grouped by topic so new contributors can easily find the appropriate
 location.
 
 ```
