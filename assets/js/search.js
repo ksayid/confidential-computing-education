@@ -6,9 +6,8 @@ const searchInput      = document.getElementById('search-input');
 const resultsContainer = document.getElementById('results');
 let   index            = [];
 
-// Fetch the pre-built Lunr/Elasticlunr index Jekyll emits at /search.json
-const baseUrl = '{{ site.baseurl }}';            // lets the site run under a sub-folder locally or on GitHub Pages
-fetch(`${baseUrl}/search.json`)
+// Fetch the generated index, accounting for any base URL the site might use
+fetch('{{ "/search.json" | relative_url }}')
   .then(response => response.json())
   .then(data => { index = data; });
 
@@ -17,18 +16,18 @@ searchInput.addEventListener('input', () => {
   resultsContainer.innerHTML = '';
   if (!query) return;
 
-  const results = index.filter(page =>
-    page.title.toLowerCase().includes(query) ||
-    page.content.toLowerCase().includes(query)
-  );
+  const results = index.filter(page => {
+    const title   = (page.title   || '').toLowerCase();
+    const content = (page.content || '').toLowerCase();
+    return title.includes(query) || content.includes(query);
+  });
 
   results.slice(0, 10).forEach(page => {
     const item = document.createElement('li');
     const link = document.createElement('a');
 
-    /* Ensure links work both on local dev (`/confidential-computing-education/...`)
-       and on production (root). */
-    link.href        = page.url.startsWith('/') ? `${baseUrl}${page.url}` : page.url;
+    // `page.url` is already absolute in the JSON, so no extra prefixing needed
+    link.href        = page.url;
     link.textContent = page.title;
 
     item.appendChild(link);

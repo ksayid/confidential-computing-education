@@ -1,12 +1,15 @@
 ---
 layout: null
+search_exclude: true
 ---
 [
-{% for page in site.pages %}{% if page.search_exclude != true and page.content != '' %}
+{% for page in site.pages %}
+  {% if page.search_exclude != true and page.content != '' and page.title %}
   {
     "title": {{ page.title | jsonify }},
     "url": "{{ page.url | absolute_url }}",
     "content": {{ page.content | strip_html | normalize_whitespace | jsonify }}
   }{% unless forloop.last %},{% endunless %}
-{% endif %}{% endfor %}
+  {% endif %}
+{% endfor %}
 ]

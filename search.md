@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Search
+search_exclude: true
 ---
 
 <h2>Search</h2>
