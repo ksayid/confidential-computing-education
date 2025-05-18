@@ -179,7 +179,7 @@ The Open Enclave (OE) SDK provides standardized APIs for attestation. Below are 
 7. **Secure Communication**
     If attestation succeeds, the enclave can safely receive secrets or engage in secure protocols.
 
-## 11. Memory Protection (New Section)
+## 11. Memory Protection
 Intel SGX protects confidential data by encrypting a specific region of memory, called Protected Reserved Memory (PRM), at the hardware level. A key structure within the PRM is the Enclave Page Cache (EPC), where all enclave code and data reside.
 
 * **EPC (Enclave Page Cache)**
@@ -195,7 +195,7 @@ Intel SGX protects confidential data by encrypting a specific region of memory, 
    * Attempts by non-enclave code (including other enclaves) to access an enclave’s EPC pages are blocked by hardware checks.
    * Side-channel attacks are out of scope in the standard SGX threat model ([24]).
 
-## 12. Execution Lifecycle (New Section)
+## 12. Execution Lifecycle
 An SGX enclave goes through well-defined stages from creation to teardown:
 1. Loading Stage
    * Performed by untrusted code in the host application.

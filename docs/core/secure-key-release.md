@@ -38,4 +38,50 @@ Key management service — A service for securely storing, managing, and backing
 ## Secure key release sidecar
 Confidential containers on Azure Container Instances provide a sidecar open source container for attestation and secure key release. This sidecar instantiates a web server, which exposes a REST API so that other containers can retrieve a hardware attestation report or a Microsoft Azure Attestation token via the POST method. The sidecar integrates with Azure Key vault for releasing a key to the container group after validation has been completed.
 
+## Azure Key Vault Container Types
+Azure Key Vault is a service that stores and manages cryptographic keys, secrets, and certificates. It has two main container types:
+
+1. Vaults: A multi-tenant service that comes in two different tiers:
+    * Standard SKU: Supports only software-protected keys.
+    * Premium SKU: Supports both software-protected keys and keys protected by an HSM.
+2. Managed HSM:
+    * Standard B1: Supports only HSM-backed keys.
+
+## Accessing Keys in Azure Key Vault
+1. Obtain an Access Token
+    * Use the Azure Instance Metadata Service (IMDS) to get a token for Azure Key Vault.
+    * The managed identity must be enabled for the Azure resource to use IMDS.
+2. Invoke Key Vault’s REST API
+    * Make an HTTP request to retrieve a key.
+    * Include the access token as a Bearer token in the Authorization header.
+    * If the list operation isn’t allowed, you must know the exact key name (and optionally its version).
+
+## Controlling Access to Keys
+By default, if a security principal has permission to get keys, they can retrieve all keys if they know their names. This can be a potential security risk.
+
+Mitigation Option: Use separate Key Vaults for different applications, environments, and regions, per Azure’s best practices.
+
+## Introducing Secure Key Release
+Secure Key Release is a policy-based method for releasing keys with additional checks to ensure the requesting environment is trustworthy. This is especially useful for Trusted Execution Environments (TEEs) like Confidential VMs.
+
+Key differences in Secure Key Release:
+1. Access Policies:
+    * Add release key permissions for a specific managed identity.
+2. Key Properties:
+    * The key must have a Release Policy that defines the criteria for trusted environments.
+    * The key must be marked as exportable.
+3. HTTP Request:
+    * Use a modified URL to target the release operation instead of the standard get operation.
+4. Environment Assertion:
+    * Include the attested platform report (environment assertion) in the request body.
+    * The Microsoft Azure Attestation service ensures that the environment is compliant (e.g., correct firmware version, region) and the TEE is trustworthy.
+
+## How Environment Assertion Works
+* Environment Assertion:
+    * A signed JSON Web Token (JWT) from a trusted authority.
+    * Contains details (claims) about the environment such as TEE type, publisher, version, etc.
+* Key Vault’s Release Policy:
+    * Matches the claims in the Environment Assertion against the Key Vault’s requirements.
+
+
 <script src="{{ '/assets/js/dark-mode.js' | relative_url }}"></script>
