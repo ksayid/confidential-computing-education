@@ -10,3 +10,4 @@ search_exclude: true
 <ul id="results" class="search-results"></ul>
 
 <script src="{{ '/assets/js/search.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/dark-mode.js' | relative_url }}"></script>

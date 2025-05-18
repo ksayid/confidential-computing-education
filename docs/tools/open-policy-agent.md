@@ -38,3 +38,4 @@ service itself.
   ensure infrastructure-as-code or container images conform to organizational
   standards.
 
+<script src="{{ '/assets/js/dark-mode.js' | relative_url }}"></script>

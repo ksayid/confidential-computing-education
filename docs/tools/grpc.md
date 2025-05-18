@@ -32,3 +32,4 @@ The server registers itself (its methods, version, address, etc.) in a naming or
 Clients look up which server provides the method they need, then connect to it using IP/port details from the directory service.
 
 Lost messages can be handled by timeouts and retry logic in the underlying transport. If a client crashes after sending a request, the response that arrives at the client side is called an “orphan.” Various strategies (like “extermination,” “reincarnation,” etc.) can handle these stale replies.
+<script src="{{ '/assets/js/dark-mode.js' | relative_url }}"></script>

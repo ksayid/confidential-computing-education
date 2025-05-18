@@ -37,3 +37,4 @@ A typical Helm chart has a standardized file and directory layout:
 * values.yaml: Defines the default configuration values for the chart. Users can override these defaults during helm install or helm upgrade by providing their own values file or command-line parameters.
 * templates/: Holds the template files. When Helm renders a chart, all files in this directory are processed through the Go templating engine. The resulting Kubernetes manifests are then submitted to the cluster.
 * charts/:  May contain other charts, often referred to as "subcharts." These subcharts can be dependencies, allowing you to compose multiple charts together into a larger application stack.
+<script src="{{ '/assets/js/dark-mode.js' | relative_url }}"></script>

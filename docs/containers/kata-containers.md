@@ -274,3 +274,4 @@ By blending Kata Containers with Azure’s Confidential Containers on AKS, you g
 * Attestation for Trust: Workload owners verify the correct software stack is running before releasing secrets, ensuring end-to-end confidentiality.
 
 This powerful combination of nested confidential virtualization on Azure, the Kata Containers runtime, and Open Policy Agent–based security policies helps ensure your containerized workloads remain confidential—even in a multi-tenant environment with untrusted hosts or operators.
+<script src="{{ '/assets/js/dark-mode.js' | relative_url }}"></script>
