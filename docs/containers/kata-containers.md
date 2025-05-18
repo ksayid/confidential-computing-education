@@ -5,6 +5,10 @@ layout: default
 
 [← Back to Main Page]({{ "/" | relative_url }})
 
+* TOC
+{:toc}
+
+
 # Kata Containers
 
 **Kata Containers** is an open-source project providing lightweight virtual machines (VMs) with the agility and speed of traditional containers. By merging hardware virtualization and containerization, Kata offers stronger isolation while retaining near-native performance. It originated from two projects:

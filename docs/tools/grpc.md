@@ -5,6 +5,10 @@ layout: default
 
 [← Back to Main Page]({{ "/" | relative_url }})
 
+* TOC
+{:toc}
+
+
 # GRPC
 # Remote Procedure Calls (RPC)
 Remote Procedure Calls (RPC) let you write code that appears to call functions locally but actually runs those functions on remote machines. The RPC layer handles all the network messaging and data conversion so that you, the programmer, can pretend it’s all just a simple local function call.

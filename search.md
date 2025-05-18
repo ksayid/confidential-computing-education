@@ -8,4 +8,3 @@ title: Search
 <ul id="results" class="search-results"></ul>
 
 <script src="{{ '/assets/js/search.js' | relative_url }}"></script>
-
