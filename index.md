@@ -10,8 +10,8 @@ Select a page below to read more.
 <ul class="notes-list notes-section">
   <li><a href="docs/core/confidential-computing-concepts">Confidential Computing Concepts</a></li>
   <li><a href="docs/core/sgx">SGX</a></li>
-  <li><a href="docs/core/secure_key_release">Secure Key Release</a></li>
-  <li><a href="docs/core/encrypted_filesystem">Encrypted Filesystem</a></li>
+  <li><a href="docs/core/secure-key-release">Secure Key Release</a></li>
+  <li><a href="docs/core/encrypted-filesystem">Encrypted Filesystem</a></li>
 </ul>
 
 ## Container Technologies {#container-tech}
