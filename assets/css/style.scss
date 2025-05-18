@@ -113,3 +113,19 @@ body.dark-mode .notes-list a {
 body.dark-mode #markdown-toc {
   border-left-color:#30363d;
 }
+
+/* Manual light mode class */
+body.light-mode {
+  background:#f8f9fa;
+}
+body.light-mode section h2 {
+  border-bottom-color:#e1e4e8;
+}
+body.light-mode .card-grid a,
+body.light-mode .notes-list a {
+  background:#ffffff;
+  color:#0366d6;
+}
+body.light-mode #markdown-toc {
+  border-left-color:#e1e4e8;
+}
