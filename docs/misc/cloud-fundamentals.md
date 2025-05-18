@@ -89,3 +89,4 @@ https://www.andrew.cmu.edu/course/14-712-s20/applications/ln/14712-l22.pdf
 https://faculty.washington.edu/wlloyd/courses/tcss562/tcss562_lecture_17_f24_2up.pdf
 https://websites.umich.edu/~eecs381/lecture/notes.html
 https://courses.cs.washington.edu/courses/cse403/24wi/lectures/16-wrapup.pdf
+<script src="{{ '/assets/js/dark-mode.js' | relative_url }}"></script>
