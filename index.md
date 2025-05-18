@@ -14,6 +14,7 @@ description: A living notebook on trusted execution, secure containers, and clou
     <li><a href="docs/core/secure-key-release/">Secure Key Release</a></li>
     <li><a href="docs/core/encrypted-filesystem/">Encrypted Filesystems</a></li>
     <li><a href="docs/core/paravisor/">Paravisor</a></li>
+    <li><a href="docs/core/confidential-ai/">Confidential AI</a></li>
   </ul>
 </section>
 
