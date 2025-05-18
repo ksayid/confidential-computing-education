@@ -3,6 +3,8 @@ title: Kubernetes
 layout: default
 ---
 
+[← Back to Main Page]({{ "/" | relative_url }})
+
 https://eksclustergames.com/challenge/2
 https://www.youtube.com/watch?v=Ki1J2pxAHdQ&list=PLBexUsYDijawgCdEqEDBj3cUCovUS1MM5&index=4
 https://www.youtube.com/playlist?list=PLBexUsYDijaz09nH8BVPmPio_16V115i4

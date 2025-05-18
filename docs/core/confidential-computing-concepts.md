@@ -3,6 +3,8 @@ title: Confidential Computing Concepts
 layout: default
 ---
 
+[← Back to Main Page]({{ "/" | relative_url }})
+
 # Confidential Computing Concepts
 **Confidential computing** refers to technologies and practices that isolate and protect data during processing, preventing unauthorized access—even by the owner of the hardware or a **cloud service provider** (CSP). This is primarily achieved using **trusted execution environments** (TEEs) and associated security mechanisms such as attestation, secure boot, and robust key management.
 
