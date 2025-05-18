@@ -2,7 +2,7 @@
 # assets/css/style.scss  ← leave this front-matter so Jekyll processes the file
 ---
 
-@import "{{ site.theme }}";   /* 1️⃣ pull in the Cayman theme first */
+@import "{{ site.theme }}";   /* pull in the Cayman theme first */
 
 /* ─────────────────── Base / layout tweaks ─────────────────── */
 html            { scroll-behavior: smooth; }
