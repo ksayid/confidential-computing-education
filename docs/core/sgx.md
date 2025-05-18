@@ -160,7 +160,6 @@ The Open Enclave (OE) SDK provides standardized APIs for attestation. Below are 
     
     Inside enclave:
     ```c
-    Copy code
     oe_get_report(OE_REPORT_FLAGS_REMOTE_ATTESTATION, ...);
     ```
     or

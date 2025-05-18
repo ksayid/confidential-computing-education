@@ -8,11 +8,6 @@ layout: default
 * TOC
 {:toc}
 
-
-https://eksclustergames.com/challenge/2
-https://www.youtube.com/watch?v=Ki1J2pxAHdQ&list=PLBexUsYDijawgCdEqEDBj3cUCovUS1MM5&index=4
-https://www.youtube.com/playlist?list=PLBexUsYDijaz09nH8BVPmPio_16V115i4
-
 ## Helm
 Helm is an open-source tool that helps you define, install, and manage applications in Kubernetes. Often described as the “package manager for Kubernetes,” Helm bundles Kubernetes manifests (such as Deployments, Services, and ConfigMaps) into reusable, version-controlled “charts.” Using charts, you can:
 
