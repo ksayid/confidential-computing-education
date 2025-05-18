@@ -5,6 +5,10 @@ layout: default
 
 [← Back to Main Page]({{ "/" | relative_url }})
 
+* TOC
+{:toc}
+
+
 # Confidential Containers
 
 Confidential Containers extend familiar container workflows with hardware-based
