@@ -8,23 +8,23 @@ Select a page below to read more.
 
 ## Core Concepts {#core-concepts}
 <ul class="notes-list notes-section">
-  <li><a href="docs/core/confidential-computing-concepts.md">Confidential Computing Concepts</a></li>
-  <li><a href="docs/core/sgx.md">SGX</a></li>
-  <li><a href="docs/core/secure_key_release.md">Secure Key Release</a></li>
-  <li><a href="docs/core/encrypted_filesystem.md">Encrypted Filesystem</a></li>
+  <li><a href="docs/core/confidential-computing-concepts">Confidential Computing Concepts</a></li>
+  <li><a href="docs/core/sgx">SGX</a></li>
+  <li><a href="docs/core/secure_key_release">Secure Key Release</a></li>
+  <li><a href="docs/core/encrypted_filesystem">Encrypted Filesystem</a></li>
 </ul>
 
 ## Container Technologies {#container-tech}
 <ul class="notes-list notes-section">
-  <li><a href="docs/containers/containers.md">Containers</a></li>
-  <li><a href="docs/containers/kata-containers.md">Kata Containers</a></li>
-  <li><a href="docs/containers/confidential-containers.md">Confidential Containers</a></li>
-  <li><a href="docs/containers/kubernetes.md">Kubernetes</a></li>
+  <li><a href="docs/containers/containers">Containers</a></li>
+  <li><a href="docs/containers/kata-containers">Kata Containers</a></li>
+  <li><a href="docs/containers/confidential-containers">Confidential Containers</a></li>
+  <li><a href="docs/containers/kubernetes">Kubernetes</a></li>
 </ul>
 
 ## Tools & Frameworks {#tools}
 <ul class="notes-list notes-section">
-  <li><a href="docs/tools/policy-generation.md">Open Policy Agent</a></li>
+  <li><a href="docs/tools/open-policy-agent">Open Policy Agent</a></li>
   <li><a href="docs/tools/grpc">gRPC</a></li>
 </ul>
 
