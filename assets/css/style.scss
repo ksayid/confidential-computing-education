@@ -54,6 +54,20 @@ section h2      { font-size:1.5rem; margin-bottom:1rem;
   section h2          { border-bottom-color:#30363d; }
   .card-grid a,
   .notes-list a       { background:#161b22; color:#58a6ff; }
+  #markdown-toc       { border-left-color:#30363d; }
+}
+/* ─────────────────── Table of contents ─────────────────── */
+#markdown-toc {
+  margin:1rem 0 2rem;
+  padding-left:1rem;
+  border-left:4px solid #e1e4e8;
+}
+#markdown-toc ul {
+  list-style:none;
+  padding-left:1rem;
+}
+#markdown-toc a {
+  text-decoration:none;
 }
 
 /* ─────────────────── Search results ─────────────────── */
