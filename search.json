@@ -1,10 +1,11 @@
 ---
 layout: null
+search_exclude: true
 ---
 [
 {% assign first = true %}
 {% for page in site.pages %}
-{% unless page.search_exclude == true or page.content == '' %}
+{% if page.search_exclude != true and page.content != '' and page.title %}
   {% unless first %},{% endunless %}
   {
     "title": {{ page.title | jsonify }},
@@ -12,6 +13,6 @@ layout: null
     "content": {{ page.content | strip_html | normalize_whitespace | jsonify }}
   }
   {% assign first = false %}
-{% endunless %}
+{% endif %}
 {% endfor %}
 ]

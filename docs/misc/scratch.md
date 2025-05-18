@@ -1,9 +1,14 @@
 ---
 title: Scratch
 layout: default
+search_exclude: true
 ---
 
 [← Back to Main Page]({{ "/" | relative_url }})
+
+* TOC
+{:toc}
+
 
 https://www.youtube.com/watch?v=YIQi2geM5ys
 https://phala.network/posts/GPU-TEEs-is-Alive-on-OpenRouter
