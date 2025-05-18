@@ -119,4 +119,33 @@ Confidential containers on Azure Container Instances can use **verifiable execut
 
 By enforcing these verifiable execution policies, customers maintain control over their container security posture while leveraging the convenience and scalability of Azure Container Instances.
 
+## When to Use Confidential VMs vs. Confidential Containers
+
+You might deploy your solution on **Confidential VMs** if:
+
+1. You have legacy applications that **cannot be modified or containerized**, yet you need memory protection while data is being processed.  
+2. You are running **multiple applications requiring different operating systems** on a single piece of infrastructure.  
+3. You want to emulate an **entire computing environment**, including OS resources.  
+4. You are **migrating existing VMs** from on-premises to Azure.
+
+Conversely, you might consider **Confidential Containers** when you have containerized workloads or can containerize your application and want to benefit from hardware-based isolation at the container level, rather than the full VM scope.
+
+## Containerization Background
+
+Further, container definitions adhering to the OCI (Open Containers Initiative)  
+Distribution Specification specify dependencies as layers that can be shared  
+between different containers, making them amenable to caching and thus speeding  
+up deployment while reducing storage costs for multiple containers.
+
+The success of containerization technology for on-premises systems has led  
+to major cloud providers developing their own CaaS (containers as a service)  
+offerings, which provide customers with the ability to maintain and deploy  
+containers in the public cloud. In CaaS offerings, containers run in a per-group  
+UVM (utility virtual machine), which provides hypervisor-level isolation  
+between containers running from different tenants on the same host. While the  
+container manager and container shim running on the host are responsible for  
+pulling images from the container registry, bringing up the UVM, and  
+orchestrating container execution, an agent running in the UVM (the guest agent)  
+coordinates the container workflow as directed by the host-side container shim.
+
 <script src="{{ '/assets/js/dark-mode.js' | relative_url }}"></script>
