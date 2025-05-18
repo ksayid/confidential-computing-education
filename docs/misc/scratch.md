@@ -9,6 +9,17 @@ search_exclude: true
 * TOC
 {:toc}
 
+https://www.youtube.com/watch?v=30H4vzj125g
+https://temporal.io/?utm_source=substack&utm_medium=email
+https://arxiv.org/pdf/2505.03742v1
+https://hazyresearch.stanford.edu/blog/2025-05-12-security
+https://www.youtube.com/watch?v=5wdntWrHUws
+https://www.youtube.com/watch?v=cTmZ1eCs08E
+https://www.youtube.com/watch?v=5AW0rKV2hkY
+https://www.youtube.com/watch?v=nYa-RrHYBK8
+https://www.youtube.com/watch?v=jsBot6dtfD0
+https://www.youtube.com/watch?v=vHcpDk2WsnM
+https://www.youtube.com/watch?v=LyuKEk9LOFk
 https://www.youtube.com/watch?v=3G3BNMTx3bE&list=PLBexUsYDijaz09nH8BVPmPio_16V115i4&index=27
 https://www.youtube.com/watch?v=tZGjr2Kwpls&list=PLBexUsYDijaz09nH8BVPmPio_16V115i4&index=32
 https://www.youtube.com/watch?v=QNX5JfV390c&list=PLBexUsYDijaz09nH8BVPmPio_16V115i4&index=38&t=3s
