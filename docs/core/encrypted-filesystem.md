@@ -28,3 +28,4 @@ The sidecar is a form of **volume encryption**.
 
 * https://techcommunity.microsoft.com/t5/azure-confidential-computing/nlp-inferencing-on-confidential-azure-container-instance/ba-p/3827628
 * cryptsetup
+<script src="{{ '/assets/js/dark-mode.js' | relative_url }}"></script>

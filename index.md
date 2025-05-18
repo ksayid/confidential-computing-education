@@ -41,3 +41,4 @@ description: A living notebook on trusted execution, secure containers, and clou
     <li><a href="docs/misc/scratch/">Scratch Pad</a></li>
   </ul>
 </section>
+<script src="{{ '/assets/js/dark-mode.js' | relative_url }}"></script>

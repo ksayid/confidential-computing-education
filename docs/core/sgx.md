@@ -370,3 +370,4 @@ Enclave code (dispatcher, attestation, crypto) compiled with the SGX/Open Enclav
 Host code that calls ECalls to the enclave.
 A Makefile that ensures correct build and linking steps.
 Verification – The crucial step is verifying the signature in the quote plus the enclave’s measurement. Once done, the remote side can trust that the code and data inside the enclave haven’t been tampered with.
+<script src="{{ '/assets/js/dark-mode.js' | relative_url }}"></script>

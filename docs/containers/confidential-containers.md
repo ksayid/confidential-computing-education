@@ -37,3 +37,4 @@ sensitive or multi-tenant scenarios.
 * **Policy enforcement** – Integrations with tools like Open Policy Agent (OPA)
   let operators define fine-grained rules for what a confidential pod may do
   once running inside the TEE boundary.
+<script src="{{ '/assets/js/dark-mode.js' | relative_url }}"></script>

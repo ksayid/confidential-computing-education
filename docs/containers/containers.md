@@ -125,3 +125,4 @@ Containers are isolated from the host via namespaces, cgroups, seccomp, and LSMs
 * The Docker storage driver manages requests to this layer and ensures lower layers remain read-only.
 * This writable layer is tied to the container ID and persists on the host until you remove or prune the container.
 * Because all the layers beneath the container layer are read-only and shared, you can run multiple containers from the same underlying image. Each container simply has its own dedicated (and writable) top layer to capture runtime changes.
+<script src="{{ '/assets/js/dark-mode.js' | relative_url }}"></script>
