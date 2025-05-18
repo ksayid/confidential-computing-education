@@ -1,6 +1,6 @@
 ---
 title: Kata Containers
-layout: page
+layout: default
 ---
 
 # Kata Containers

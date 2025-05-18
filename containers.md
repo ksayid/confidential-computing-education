@@ -1,6 +1,6 @@
 ---
 title: Containers
-layout: page
+layout: default
 ---
 
 # Containers

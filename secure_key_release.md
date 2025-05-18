@@ -1,6 +1,6 @@
 ---
 title: Secure Key Release
-layout: page
+layout: default
 ---
 
 # Secure Key Release

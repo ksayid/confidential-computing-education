@@ -1,6 +1,6 @@
 ---
 title: Encrypted Filesystem
-layout: page
+layout: default
 ---
 
 # Foundations

@@ -1,4 +1,4 @@
 ---
 title: Confidential Containers
-layout: page
+layout: default
 ---

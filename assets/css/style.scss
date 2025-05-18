@@ -1,7 +1,6 @@
 ---
 ---
-
-@import "jekyll-theme-cayman";
+@import "{{ site.theme }}";
 
 /* Custom styles */
 body {
@@ -15,28 +14,33 @@ main {
   padding: 1rem;
 }
 
+.page-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.notes-section {
+  margin-bottom: 2rem;
+}
+
 .notes-list {
   list-style: none;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;                    /* roomy spacing */
-}
-
-.notes-list li {
-  background: #fff;
-  border-radius: 6px;           /* subtle rounded corners */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
 }
 
 .notes-list a {
   display: block;
-  padding: 0.75rem;             /* compromise between 0.5 rem and 1 rem */
-  color: #0366d6;
+  background: #fff;
+  padding: 0.75rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-decoration: none;
-  border-radius: 6px;           /* keeps the hit-area nicely rounded */
 }
 
 .notes-list a:hover {
-  text-decoration: underline;   /* clear hover feedback */
+  background: #f0f0f0;
 }
