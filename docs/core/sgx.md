@@ -179,4 +179,40 @@ The Open Enclave (OE) SDK provides standardized APIs for attestation. Below are 
 7. **Secure Communication**
     If attestation succeeds, the enclave can safely receive secrets or engage in secure protocols.
 
+## 11. Memory Protection (New Section)
+Intel SGX protects confidential data by encrypting a specific region of memory, called Protected Reserved Memory (PRM), at the hardware level. A key structure within the PRM is the Enclave Page Cache (EPC), where all enclave code and data reside.
+
+* **EPC (Enclave Page Cache)**
+   * A separate region in physical memory that holds enclave pages.
+   * Each EPC page belongs to exactly one enclave.
+   * The CPU maintains the Enclave Page Cache Map (EPCM) to track each page’s owner and attributes.
+* **Hardware Enforced**
+   * EPC pages are encrypted before writing to main memory and decrypted upon loading into the processor.
+   * The OS or hypervisor cannot read the EPC contents directly, even with root privileges.
+
+* **Access Checks**
+   * Page table entries for enclave code and data are protected.
+   * Attempts by non-enclave code (including other enclaves) to access an enclave’s EPC pages are blocked by hardware checks.
+   * Side-channel attacks are out of scope in the standard SGX threat model ([24]).
+
+## 12. Execution Lifecycle (New Section)
+An SGX enclave goes through well-defined stages from creation to teardown:
+1. Loading Stage
+   * Performed by untrusted code in the host application.
+   * Code and data are copied into EPC pages.
+   * Each page addition operation updates an enclave’s measurement hash (a cryptographic SHA-256 digest representing the enclave’s initial state).
+2. Initialization
+   * Once all required code/data is loaded, the enclave is initialized (sealed).
+   * The final measurement hash is computed and stored.
+   * The initialization finalizes the enclave so that modifications to code pages are no longer permitted.
+3. Enclave Mode
+   * The CPU runs enclave code with specialized SGX instructions that enter/exit enclaves (e.g., EENTER, EEXIT).
+   * From the software perspective, calling into the enclave is akin to switching from “user mode” to “secure enclave mode.”
+4. Handling Interrupts & Exceptions
+   * Even if an interrupt or page fault occurs, SGX ensures that the CPU exits the enclave safely.
+   * All register states and sensitive data remain protected from inspection by the untrusted OS exception handlers.
+5. Teardown
+   * The enclave is destroyed, freeing EPC pages.
+   * No residual secrets remain in unencrypted memory after teardown.
+
 <script src="{{ '/assets/js/dark-mode.js' | relative_url }}"></script>

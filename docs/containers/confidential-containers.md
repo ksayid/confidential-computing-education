@@ -66,4 +66,57 @@ sensitive or multi-tenant scenarios.
   * You get a Linux environment (“utility VM”) that is both fully functional for containers and protected by hardware-based encryption.
   * The ephemeral nature of the disk ensures that sensitive data won’t persist once the VM/container is torn down.
 
+### Remote guest attestation
+Confidential containers on ACI provide support for remote guest attestation which is used to verify the trustworthiness of your container group before creating a secure channel with a relying party. Container groups can generate an SNP hardware attestation report, which is signed by the hardware and includes information about the hardware and software. This generated hardware attestation report can then be verified by the Microsoft Azure Attestation service via an open-source sidecar application or by another attestation service before any sensitive data is released to the TEE.
+
+---
+
+## Confidential Computing Enforcement (CCE) Policy
+
+A **Confidential Computing Enforcement (CCE)** policy provides code integrity for the container group. The policy specifies:
+
+- **Container image**  
+- **Environment variables**  
+- **Any volume mounts**  
+- **Container-specific privileges**
+
+When the container group starts up, if any of these properties do not match the defined policy, the deployment fails to prevent sensitive data from being exposed. You can generate this policy from the Azure CLI `confcom` extension using a user-specified ARM template. The policy is injected into the ARM template before container group deployment.
+
+## In-Use Data (Memory and CPU) Protections
+
+All data **in use** (in memory and CPU registers) is protected by a hardware-based Trusted Execution Environment (TEE) running on AMD SEV-SNP hardware. Azure Container Instances (ACI) will refuse to start the container unless the hardware confirms, via cryptographic signing, that it is providing SEV-SNP protections for confidential computing to the container. ACI supports verifiable execution policies that allow customers to verify the integrity of their workloads and help prevent untrusted code from running.
+
+## Key Capabilities of Confidential Containers
+
+- **Lift-and-shift** existing standard container images with **no code changes** into a TEE environment.  
+- Extend or build new applications that have confidential computing awareness.  
+- Remotely challenge the runtime environment for cryptographic proof that states what was initialized, as reported by the secure processor.  
+- Provide strong assurances of data confidentiality, code integrity, and data integrity in a cloud environment with hardware-based confidential computing offerings.  
+- Help isolate your containers from other container groups/pods, as well as from the VM node OS kernel.
+
+## [NEW SECTION] When to Use Confidential VMs vs. Confidential Containers
+
+You might deploy your solution on **Confidential VMs** if:
+
+1. You have legacy applications that **cannot be modified or containerized**, yet you need memory protection while data is being processed.  
+2. You are running **multiple applications requiring different operating systems** on a single piece of infrastructure.  
+3. You want to emulate an **entire computing environment**, including OS resources.  
+4. You are **migrating existing VMs** from on-premises to Azure.
+
+Conversely, you might consider **Confidential Containers** when you have containerized workloads or can containerize your application and want to benefit from hardware-based isolation at the container level, rather than the full VM scope.
+
+## Hardware-Based TEE in ACI
+
+Confidential containers on Azure Container Instances run within a **Hyper-V isolated TEE**. This TEE includes a memory encryption key that is generated and managed by an AMD SEV-SNP capable processor. Data in use in memory is encrypted with this key to help protect against data replay, corruption, remapping, and aliasing-based attacks. This hardware-based approach adds a layer of security by ensuring that even Azure operators with elevated privileges cannot inspect or modify data in memory.
+
+## Verifiable Execution Policies
+
+Confidential containers on Azure Container Instances can use **verifiable execution policies** to control what software and actions are allowed within the TEE. These policies:
+
+- Are authored by the customer using provided tooling.  
+- Contain cryptographic proofs that are checked by the TEE before allowing the workload to run.  
+- Help prevent unexpected application modifications that could potentially leak or compromise sensitive data.  
+
+By enforcing these verifiable execution policies, customers maintain control over their container security posture while leveraging the convenience and scalability of Azure Container Instances.
+
 <script src="{{ '/assets/js/dark-mode.js' | relative_url }}"></script>

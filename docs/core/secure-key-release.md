@@ -34,4 +34,8 @@ Interact with Key Management Service to retrieve the keys and send them to the a
 Verifier (Attestation Service) — The Attestation service verifies the evidence, based on configured policy and reference values. Think of reference values as “good” and “trusted” values which are known beforehand and used for verification of the evidence sent by the attester. These reference values are typically generated when building the system software and firmware layers, through a coupled CI/CD pipeline.
 
 Key management service — A service for securely storing, managing, and backing up cryptographic keys used by applications and users.
+
+## Secure key release sidecar
+Confidential containers on Azure Container Instances provide a sidecar open source container for attestation and secure key release. This sidecar instantiates a web server, which exposes a REST API so that other containers can retrieve a hardware attestation report or a Microsoft Azure Attestation token via the POST method. The sidecar integrates with Azure Key vault for releasing a key to the container group after validation has been completed.
+
 <script src="{{ '/assets/js/dark-mode.js' | relative_url }}"></script>
